@@ -1,4 +1,4 @@
-name: 'Algolia Docsearch Action'
+name: 'Algolia Docsearch Uploader'
 description: 'An Algolia docsearch uploader'
 outputs:
   time: 
