@@ -1,0 +1,9 @@
+name: 'Algolia Docsearch Action'
+description: 'An Algolia docsearch uploader'
+outputs:
+  time: 
+    description: '🚀Uploaded algolia index completed'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
