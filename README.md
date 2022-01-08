@@ -1,4 +1,6 @@
-# algolia-docsearch-action
+# algolia-docsearch-upload-action
+
+> An especially small & quick & simple Algolia docsearch Indices upload action
 
 ## Usage
 
