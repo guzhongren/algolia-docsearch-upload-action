@@ -1,13 +1,6 @@
 #!/bin/sh
 set -eu
 
-npm install -g @algolia/cli
+algolia profile add --name "my-profile" --app-id $APPLICATION_ID --admin-api-key $ADMIN_API_KEY --default
 
-algolia import -s $FILE_PATH -a $APPLICATION_ID -k $ADMIN_API_KEY -n $INDEX_NAME 
-
-if [ "$?" != "0" ] ; then
-  echo "😢 Failed to upload your data to Algolia, PLZ report an issue, thx!"
-  exit 1
-fi
-
-echo "🚀 Successfully uploaded!"
+algolia objects import $INDEX_NAME -F $FILE_PATH
