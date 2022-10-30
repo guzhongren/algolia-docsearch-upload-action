@@ -20,13 +20,13 @@ jobs:
     - name: build
       run: npm install -g pnpm && pnpm install && pnpm run build
     - name: cp to 1 folder
-      run: mkdir ./public && cp ./README.md .gitignore package.json LICENSE action.yml ./src/index.js ./public/
+      run: cp README.md .gitignore package.json LICENSE action.yml ./dist/ && cp -r node_modules ./dist/node_modules
     - name: Pushes to another repository
       uses: cpina/github-action-push-to-another-repository@main
       env:
         API_TOKEN_GITHUB: ${{ secrets.PERSONAL_TOKEN }}
       with:
-        source-directory: ./public
+        source-directory: ./dist
         destination-github-username: guzhongren
         destination-repository-name: algolia-docsearch-upload-action
         user-email: guzhongren@live.cn

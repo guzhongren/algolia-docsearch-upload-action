@@ -2,13 +2,11 @@
   "name": "algolia-docsearch-upload-action",
   "version": "1.0.0",
   "description": "> An especially small & quick & simple Algolia docsearch Indices upload action",
+  "source": "src/index.ts",
   "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
     "upload": "ts-node src/index.ts",
-    "build": "tsc src/index.ts"
+    "build": "tsc src/index.ts --outDir ./dist"
   },
   "repository": {
     "type": "git",
@@ -27,6 +25,7 @@
   },
   "devDependencies": {
     "@types/node": "^18.11.7",
+    "parcel": "^2.7.0",
     "ts-node": "^10.9.1"
   }
 }
