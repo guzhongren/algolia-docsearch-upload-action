@@ -13,6 +13,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Syntax check
-      run:  sh -n ./entrypoint.sh ./ops/register_git_hooks.sh
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16
+    - name: build
+      run: npm install -g pnpm && pnpm install && pnpm run build
+    - name: cp to 1 folder
+      run: mkdir ./public && cp ./README.md package.json LICENSE action.yml ./src/index.js ./public/
+    - name: Pushes to another repository
+      uses: cpina/github-action-push-to-another-repository@main
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.PERSONAL_TOKEN }}
+      with:
+        source-directory: ./public
+        destination-github-username: guzhongren
+        destination-repository-name: algolia-docsearch-upload-action
+        user-email: guzhongren@live.cn
+        target-branch: main
