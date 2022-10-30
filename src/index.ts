@@ -1,6 +1,7 @@
-import algoliasearch from 'algoliasearch';
-import * as fs from 'fs';
-import { exit } from 'process';
+const algoliasearch = require('algoliasearch');
+const fs = require('fs');
+const { exit } = require('process');
+
 
 const APPLICATION_ID = process.env.APPLICATION_ID;
 const ADMIN_API_KEY = process.env.ADMIN_API_KEY;
@@ -20,7 +21,7 @@ try {
   const objects = JSON.parse(data);
   index
     .saveObjects(objects, { autoGenerateObjectIDIfNotExist: true })
-    .then(({ objectIDs }) => {
+    .then(({ objectIDs }: {objectIDs: any}) => {
       console.log(objectIDs);
       console.log("Successfully saved Objects");
     });
