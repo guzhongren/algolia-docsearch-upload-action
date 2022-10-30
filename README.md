@@ -25,3 +25,23 @@ export ADMIN_API_KEY=API_KEY
 export INDEX_NAME="index.zh-cn"
 export FILE_PATH="./test/data/index.json"
 ```
+
+## Dev
+
+### Branch
+
+- dev: Developer used
+- main: release
+
+## Release steps
+
+After pushed the dev branch to origin
+
+```sh
+git checkout main
+git pull -r
+git tag v2.1.0
+git push origin v2.1.0
+```
+
+Release a new version in github release page
