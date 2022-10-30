@@ -20,7 +20,7 @@ jobs:
     - name: build
       run: npm install -g pnpm && pnpm install && pnpm run build
     - name: cp to 1 folder
-      run: cp README.md .gitignore package.json LICENSE action.yml ./dist/ && cp -r node_modules ./dist/node_modules
+      run: cp README.md package.json LICENSE action.yml ./dist/ && cp -r node_modules ./dist/node_modules && cp .gitignore-action ./dist/.gitignore
     - name: Pushes to another repository
       uses: cpina/github-action-push-to-another-repository@main
       env:
