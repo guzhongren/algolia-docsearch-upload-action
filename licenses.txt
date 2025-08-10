@@ -19,6 +19,9 @@ MIT
 @algolia/logger-common
 MIT
 
+@algolia/recommend
+MIT
+
 @algolia/requester-common
 MIT
 

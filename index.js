@@ -1,7 +1,7 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 892:
+/***/ 497:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -70,16 +70,16 @@ exports.createNullCache = createNullCache;
 
 /***/ }),
 
-/***/ 17:
+/***/ 911:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 // eslint-disable-next-line functional/immutable-data, import/no-commonjs
-module.exports = __nccwpck_require__(892);
+module.exports = __nccwpck_require__(497);
 
 
 /***/ }),
 
-/***/ 61:
+/***/ 453:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -124,16 +124,16 @@ exports.createInMemoryCache = createInMemoryCache;
 
 /***/ }),
 
-/***/ 458:
+/***/ 334:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 // eslint-disable-next-line functional/immutable-data, import/no-commonjs
-module.exports = __nccwpck_require__(61);
+module.exports = __nccwpck_require__(453);
 
 
 /***/ }),
 
-/***/ 567:
+/***/ 689:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -141,9 +141,9 @@ module.exports = __nccwpck_require__(61);
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 
-var clientCommon = __nccwpck_require__(201);
-var transporter = __nccwpck_require__(739);
-var requesterCommon = __nccwpck_require__(289);
+var clientCommon = __nccwpck_require__(40);
+var transporter = __nccwpck_require__(53);
+var requesterCommon = __nccwpck_require__(99);
 
 const createAnalyticsClient = options => {
     const region = options.region || 'us';
@@ -221,16 +221,16 @@ exports.stopABTest = stopABTest;
 
 /***/ }),
 
-/***/ 591:
+/***/ 240:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 // eslint-disable-next-line functional/immutable-data, import/no-commonjs
-module.exports = __nccwpck_require__(567);
+module.exports = __nccwpck_require__(689);
 
 
 /***/ }),
 
-/***/ 586:
+/***/ 957:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -307,7 +307,7 @@ function encode(format, ...args) {
     return format.replace(/%s/g, () => encodeURIComponent(args[i++]));
 }
 
-const version = '4.14.2';
+const version = '4.25.2';
 
 const destroy = (base) => {
     return () => {
@@ -339,16 +339,16 @@ exports.version = version;
 
 /***/ }),
 
-/***/ 201:
+/***/ 40:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 // eslint-disable-next-line functional/immutable-data, import/no-commonjs
-module.exports = __nccwpck_require__(586);
+module.exports = __nccwpck_require__(957);
 
 
 /***/ }),
 
-/***/ 942:
+/***/ 774:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -356,9 +356,9 @@ module.exports = __nccwpck_require__(586);
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 
-var clientCommon = __nccwpck_require__(201);
-var transporter = __nccwpck_require__(739);
-var requesterCommon = __nccwpck_require__(289);
+var clientCommon = __nccwpck_require__(40);
+var transporter = __nccwpck_require__(53);
+var requesterCommon = __nccwpck_require__(99);
 
 const createPersonalizationClient = options => {
     const region = options.region || 'us';
@@ -405,16 +405,16 @@ exports.setPersonalizationStrategy = setPersonalizationStrategy;
 
 /***/ }),
 
-/***/ 830:
+/***/ 578:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 // eslint-disable-next-line functional/immutable-data, import/no-commonjs
-module.exports = __nccwpck_require__(942);
+module.exports = __nccwpck_require__(774);
 
 
 /***/ }),
 
-/***/ 1:
+/***/ 881:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -422,9 +422,9 @@ module.exports = __nccwpck_require__(942);
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 
-var clientCommon = __nccwpck_require__(201);
-var transporter = __nccwpck_require__(739);
-var requesterCommon = __nccwpck_require__(289);
+var clientCommon = __nccwpck_require__(40);
+var transporter = __nccwpck_require__(53);
+var requesterCommon = __nccwpck_require__(99);
 var crypto = __nccwpck_require__(113);
 
 function createBrowsablePromise(options) {
@@ -1007,11 +1007,21 @@ const updateApiKey = (base) => {
             'maxQueriesPerIPPerHour',
             'maxHitsPerQuery',
         ];
+        // Check that all the fields retrieved through getApiKey are the same as the ones we wanted to update
         const hasChanged = (getApiKeyResponse) => {
             return Object.keys(updatedFields)
                 .filter((updatedField) => apiKeyFields.indexOf(updatedField) !== -1)
                 .every(updatedField => {
-                return getApiKeyResponse[updatedField] === updatedFields[updatedField];
+                // If the field is an array, we need to check that they are the same length and that all the values are the same
+                if (Array.isArray(getApiKeyResponse[updatedField]) &&
+                    Array.isArray(updatedFields[updatedField])) {
+                    const getApiKeyResponseArray = getApiKeyResponse[updatedField];
+                    return (getApiKeyResponseArray.length === updatedFields[updatedField].length &&
+                        getApiKeyResponseArray.every((value, index) => value === updatedFields[updatedField][index]));
+                }
+                else {
+                    return getApiKeyResponse[updatedField] === updatedFields[updatedField];
+                }
             });
         };
         const wait = (_, waitRequestOptions) => clientCommon.createRetryablePromise(retry => {
@@ -1658,6 +1668,7 @@ const ApiKeyACLEnum = {
     DeleteIndex: 'deleteIndex',
     DeleteObject: 'deleteObject',
     EditSettings: 'editSettings',
+    Inference: 'inference',
     ListIndexes: 'listIndexes',
     Logs: 'logs',
     Personalization: 'personalization',
@@ -1791,16 +1802,16 @@ exports.waitTask = waitTask;
 
 /***/ }),
 
-/***/ 207:
+/***/ 246:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 // eslint-disable-next-line functional/immutable-data, import/no-commonjs
-module.exports = __nccwpck_require__(1);
+module.exports = __nccwpck_require__(881);
 
 
 /***/ }),
 
-/***/ 439:
+/***/ 221:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -1834,16 +1845,247 @@ exports.createNullLogger = createNullLogger;
 
 /***/ }),
 
-/***/ 153:
+/***/ 35:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 // eslint-disable-next-line functional/immutable-data, import/no-commonjs
-module.exports = __nccwpck_require__(439);
+module.exports = __nccwpck_require__(221);
 
 
 /***/ }),
 
-/***/ 818:
+/***/ 508:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+"use strict";
+
+
+var cacheCommon = __nccwpck_require__(911);
+var cacheInMemory = __nccwpck_require__(334);
+var clientCommon = __nccwpck_require__(40);
+var loggerCommon = __nccwpck_require__(35);
+var requesterNodeHttp = __nccwpck_require__(632);
+var transporter = __nccwpck_require__(53);
+var requesterCommon = __nccwpck_require__(99);
+
+const createRecommendClient = options => {
+    const appId = options.appId;
+    const auth = clientCommon.createAuth(options.authMode !== undefined ? options.authMode : clientCommon.AuthMode.WithinHeaders, appId, options.apiKey);
+    const transporter$1 = transporter.createTransporter({
+        hosts: [
+            { url: `${appId}-dsn.algolia.net`, accept: transporter.CallEnum.Read },
+            { url: `${appId}.algolia.net`, accept: transporter.CallEnum.Write },
+        ].concat(clientCommon.shuffle([
+            { url: `${appId}-1.algolianet.com` },
+            { url: `${appId}-2.algolianet.com` },
+            { url: `${appId}-3.algolianet.com` },
+        ])),
+        ...options,
+        headers: {
+            ...auth.headers(),
+            ...{ 'content-type': 'application/x-www-form-urlencoded' },
+            ...options.headers,
+        },
+        queryParameters: {
+            ...auth.queryParameters(),
+            ...options.queryParameters,
+        },
+    });
+    const base = {
+        transporter: transporter$1,
+        appId,
+        addAlgoliaAgent(segment, version) {
+            transporter$1.userAgent.add({ segment, version });
+        },
+        clearCache() {
+            return Promise.all([
+                transporter$1.requestsCache.clear(),
+                transporter$1.responsesCache.clear(),
+            ]).then(() => undefined);
+        },
+    };
+    return clientCommon.addMethods(base, options.methods);
+};
+
+const getRecommendations = base => {
+    return (queries, requestOptions) => {
+        const requests = queries.map(query => ({
+            ...query,
+            // The `threshold` param is required by the endpoint to make it easier
+            // to provide a default value later, so we default it in the client
+            // so that users don't have to provide a value.
+            threshold: query.threshold || 0,
+        }));
+        return base.transporter.read({
+            method: requesterCommon.MethodEnum.Post,
+            path: '1/indexes/*/recommendations',
+            data: {
+                requests,
+            },
+            cacheable: true,
+        }, requestOptions);
+    };
+};
+
+const getFrequentlyBoughtTogether = base => {
+    return (queries, requestOptions) => {
+        return getRecommendations(base)(queries.map(query => ({
+            ...query,
+            fallbackParameters: {},
+            model: 'bought-together',
+        })), requestOptions);
+    };
+};
+
+const getRelatedProducts = base => {
+    return (queries, requestOptions) => {
+        return getRecommendations(base)(queries.map(query => ({
+            ...query,
+            model: 'related-products',
+        })), requestOptions);
+    };
+};
+
+const getTrendingFacets = base => {
+    return (queries, requestOptions) => {
+        const requests = queries.map(query => ({
+            ...query,
+            model: 'trending-facets',
+            // The `threshold` param is required by the endpoint to make it easier
+            // to provide a default value later, so we default it in the client
+            // so that users don't have to provide a value.
+            threshold: query.threshold || 0,
+        }));
+        return base.transporter.read({
+            method: requesterCommon.MethodEnum.Post,
+            path: '1/indexes/*/recommendations',
+            data: {
+                requests,
+            },
+            cacheable: true,
+        }, requestOptions);
+    };
+};
+
+const getTrendingItems = base => {
+    return (queries, requestOptions) => {
+        const requests = queries.map(query => ({
+            ...query,
+            model: 'trending-items',
+            // The `threshold` param is required by the endpoint to make it easier
+            // to provide a default value later, so we default it in the client
+            // so that users don't have to provide a value.
+            threshold: query.threshold || 0,
+        }));
+        return base.transporter.read({
+            method: requesterCommon.MethodEnum.Post,
+            path: '1/indexes/*/recommendations',
+            data: {
+                requests,
+            },
+            cacheable: true,
+        }, requestOptions);
+    };
+};
+
+const getLookingSimilar = base => {
+    return (queries, requestOptions) => {
+        return getRecommendations(base)(queries.map(query => ({
+            ...query,
+            model: 'looking-similar',
+        })), requestOptions);
+    };
+};
+
+const getRecommendedForYou = base => {
+    return (queries, requestOptions) => {
+        const requests = queries.map(query => ({
+            ...query,
+            model: 'recommended-for-you',
+            threshold: query.threshold || 0,
+        }));
+        return base.transporter.read({
+            method: requesterCommon.MethodEnum.Post,
+            path: '1/indexes/*/recommendations',
+            data: {
+                requests,
+            },
+            cacheable: true,
+        }, requestOptions);
+    };
+};
+
+function recommend(appId, apiKey, options) {
+    const commonOptions = {
+        appId,
+        apiKey,
+        timeouts: {
+            connect: 2,
+            read: 5,
+            write: 30,
+        },
+        requester: requesterNodeHttp.createNodeHttpRequester(),
+        logger: loggerCommon.createNullLogger(),
+        responsesCache: cacheCommon.createNullCache(),
+        requestsCache: cacheCommon.createNullCache(),
+        hostsCache: cacheInMemory.createInMemoryCache(),
+        userAgent: transporter.createUserAgent(clientCommon.version)
+            .add({ segment: 'Recommend', version: clientCommon.version })
+            .add({ segment: 'Node.js', version: process.versions.node }),
+    };
+    return createRecommendClient({
+        ...commonOptions,
+        ...options,
+        methods: {
+            destroy: clientCommon.destroy,
+            getFrequentlyBoughtTogether,
+            getRecommendations,
+            getRelatedProducts,
+            getTrendingFacets,
+            getTrendingItems,
+            getLookingSimilar,
+            getRecommendedForYou,
+        },
+    });
+}
+/* eslint-disable functional/immutable-data */
+recommend.version = clientCommon.version;
+recommend.getFrequentlyBoughtTogether = getFrequentlyBoughtTogether;
+recommend.getRecommendations = getRecommendations;
+recommend.getRelatedProducts = getRelatedProducts;
+recommend.getTrendingFacets = getTrendingFacets;
+recommend.getTrendingItems = getTrendingItems;
+recommend.getLookingSimilar = getLookingSimilar;
+recommend.getRecommendedForYou = getRecommendedForYou;
+
+module.exports = recommend;
+
+
+/***/ }),
+
+/***/ 775:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+/* eslint-disable functional/immutable-data, import/no-commonjs */
+const recommend = __nccwpck_require__(508);
+
+/**
+ * The Common JS build is the default entry point for the Node environment. Keep in
+ * in mind, that for the browser environment, we hint the bundler to use the UMD
+ * build instead as specified on the key `browser` of our `package.json` file.
+ */
+module.exports = recommend;
+
+/**
+ * In addition, we also set explicitly the default export below making
+ * this Common JS module in compliance with es6 modules specification.
+ */
+module.exports["default"] = recommend;
+
+
+/***/ }),
+
+/***/ 43:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -1863,16 +2105,16 @@ exports.MethodEnum = MethodEnum;
 
 /***/ }),
 
-/***/ 289:
+/***/ 99:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 // eslint-disable-next-line functional/immutable-data, import/no-commonjs
-module.exports = __nccwpck_require__(818);
+module.exports = __nccwpck_require__(43);
 
 
 /***/ }),
 
-/***/ 90:
+/***/ 513:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -1967,16 +2209,16 @@ exports.createNodeHttpRequester = createNodeHttpRequester;
 
 /***/ }),
 
-/***/ 80:
+/***/ 632:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 // eslint-disable-next-line functional/immutable-data, import/no-commonjs
-module.exports = __nccwpck_require__(90);
+module.exports = __nccwpck_require__(513);
 
 
 /***/ }),
 
-/***/ 719:
+/***/ 50:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -1984,7 +2226,7 @@ module.exports = __nccwpck_require__(90);
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 
-var requesterCommon = __nccwpck_require__(289);
+var requesterCommon = __nccwpck_require__(99);
 
 function createMappedRequestOptions(requestOptions, timeout) {
     const options = requestOptions || {};
@@ -2438,7 +2680,7 @@ function createDeserializationError(message, response) {
 function createRetryError(transporterStackTrace) {
     return {
         name: 'RetryError',
-        message: 'Unreachable hosts - your application id may be incorrect. If the error persists, contact support@algolia.com.',
+        message: 'Unreachable hosts - your application id may be incorrect. If the error persists, please reach out to the Algolia Support team: https://alg.li/support .',
         transporterStackTrace,
     };
 }
@@ -2467,30 +2709,143 @@ exports.stackTraceWithoutCredentials = stackTraceWithoutCredentials;
 
 /***/ }),
 
-/***/ 739:
+/***/ 53:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 // eslint-disable-next-line functional/immutable-data, import/no-commonjs
-module.exports = __nccwpck_require__(719);
+module.exports = __nccwpck_require__(50);
 
 
 /***/ }),
 
-/***/ 861:
+/***/ 379:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var cacheCommon = __nccwpck_require__(17);
-var cacheInMemory = __nccwpck_require__(458);
-var clientAnalytics = __nccwpck_require__(591);
-var clientCommon = __nccwpck_require__(201);
-var clientPersonalization = __nccwpck_require__(830);
-var clientSearch = __nccwpck_require__(207);
-var loggerCommon = __nccwpck_require__(153);
-var requesterNodeHttp = __nccwpck_require__(80);
-var transporter = __nccwpck_require__(739);
+var cacheCommon = __nccwpck_require__(911);
+var cacheInMemory = __nccwpck_require__(334);
+var clientAnalytics = __nccwpck_require__(240);
+var clientCommon = __nccwpck_require__(40);
+var clientPersonalization = __nccwpck_require__(578);
+var clientSearch = __nccwpck_require__(246);
+var loggerCommon = __nccwpck_require__(35);
+var recommend = __nccwpck_require__(775);
+var requesterNodeHttp = __nccwpck_require__(632);
+var transporter = __nccwpck_require__(53);
+var requesterCommon = __nccwpck_require__(99);
+
+function createIngestionClient(options) {
+    if (!options || !options.transformation || !options.transformation.region) {
+        throw transformationConfigurationError('`region` must be provided when leveraging the transformation pipeline');
+    }
+    if (options.transformation.region !== 'eu' && options.transformation.region !== 'us') {
+        throw transformationConfigurationError('`region` is required and must be one of the following: eu, us');
+    }
+    const appId = options.appId;
+    const auth = clientCommon.createAuth(clientCommon.AuthMode.WithinHeaders, appId, options.apiKey);
+    const transporter$1 = transporter.createTransporter({
+        hosts: [
+            {
+                url: `data.${options.transformation.region}.algolia.com`,
+                accept: transporter.CallEnum.ReadWrite,
+                protocol: 'https',
+            },
+        ],
+        ...options,
+        headers: {
+            ...auth.headers(),
+            ...{ 'content-type': 'text/plain' },
+            ...options.headers,
+        },
+        queryParameters: {
+            ...auth.queryParameters(),
+            ...options.queryParameters,
+        },
+    });
+    return {
+        transporter: transporter$1,
+        appId,
+        addAlgoliaAgent(segment, version) {
+            transporter$1.userAgent.add({ segment, version });
+            transporter$1.userAgent.add({ segment: 'Ingestion', version });
+            transporter$1.userAgent.add({ segment: 'Ingestion via Algoliasearch' });
+        },
+        clearCache() {
+            return Promise.all([
+                transporter$1.requestsCache.clear(),
+                transporter$1.responsesCache.clear(),
+            ]).then(() => undefined);
+        },
+        push({ indexName, pushTaskPayload, watch }, requestOptions) {
+            if (!indexName) {
+                throw transformationConfigurationError('Parameter `indexName` is required when calling `push`.');
+            }
+            if (!pushTaskPayload) {
+                throw transformationConfigurationError('Parameter `pushTaskPayload` is required when calling `push`.');
+            }
+            if (!pushTaskPayload.action) {
+                throw transformationConfigurationError('Parameter `pushTaskPayload.action` is required when calling `push`.');
+            }
+            if (!pushTaskPayload.records) {
+                throw transformationConfigurationError('Parameter `pushTaskPayload.records` is required when calling `push`.');
+            }
+            const opts = requestOptions || { queryParameters: {} };
+            return transporter$1.write({
+                method: requesterCommon.MethodEnum.Post,
+                path: clientCommon.encode('1/push/%s', indexName),
+                data: pushTaskPayload,
+            }, {
+                ...opts,
+                queryParameters: {
+                    ...opts.queryParameters,
+                    watch: watch !== undefined,
+                },
+            });
+        },
+    };
+}
+function saveObjectsWithTransformation(indexName, client) {
+    return (objects, requestOptions) => {
+        if (!client) {
+            throw transformationConfigurationError('`options.transformation.region` must be provided at client instantiation before calling this method.');
+        }
+        const { autoGenerateObjectIDIfNotExist, watch, ...rest } = requestOptions || {};
+        const action = autoGenerateObjectIDIfNotExist
+            ? clientSearch.BatchActionEnum.AddObject
+            : clientSearch.BatchActionEnum.UpdateObject;
+        /* eslint functional/immutable-data: "off" */
+        return client.push({
+            indexName,
+            pushTaskPayload: { action, records: objects },
+            watch,
+        }, rest);
+    };
+}
+function partialUpdateObjectsWithTransformation(indexName, client) {
+    return (objects, requestOptions) => {
+        if (!client) {
+            throw transformationConfigurationError('`options.transformation.region` must be provided at client instantiation before calling this method.');
+        }
+        const { createIfNotExists, watch, ...rest } = requestOptions || {};
+        const action = createIfNotExists
+            ? clientSearch.BatchActionEnum.PartialUpdateObject
+            : clientSearch.BatchActionEnum.PartialUpdateObjectNoCreate;
+        /* eslint functional/immutable-data: "off" */
+        return client.push({
+            indexName,
+            pushTaskPayload: { action, records: objects },
+            watch,
+        }, rest);
+    };
+}
+function transformationConfigurationError(message) {
+    return {
+        name: 'TransformationConfigurationError',
+        message,
+    };
+}
 
 function algoliasearch(appId, apiKey, options) {
     const commonOptions = {
@@ -2522,6 +2877,14 @@ function algoliasearch(appId, apiKey, options) {
             },
         });
     };
+    /* eslint functional/no-let: "off" */
+    let ingestionTransporter;
+    if (options && options.transformation) {
+        if (!options.transformation.region) {
+            throw transformationConfigurationError('`region` must be provided when leveraging the transformation pipeline');
+        }
+        ingestionTransporter = createIngestionClient({ ...options, ...commonOptions });
+    }
     return clientSearch.createSearchClient({
         ...searchClientOptions,
         methods: {
@@ -2567,49 +2930,53 @@ function algoliasearch(appId, apiKey, options) {
             waitAppTask: clientSearch.waitAppTask,
             customRequest: clientSearch.customRequest,
             initIndex: base => (indexName) => {
-                return clientSearch.initIndex(base)(indexName, {
-                    methods: {
-                        batch: clientSearch.batch,
-                        delete: clientSearch.deleteIndex,
-                        findAnswers: clientSearch.findAnswers,
-                        getObject: clientSearch.getObject,
-                        getObjects: clientSearch.getObjects,
-                        saveObject: clientSearch.saveObject,
-                        saveObjects: clientSearch.saveObjects,
-                        search: clientSearch.search,
-                        searchForFacetValues: clientSearch.searchForFacetValues,
-                        waitTask: clientSearch.waitTask,
-                        setSettings: clientSearch.setSettings,
-                        getSettings: clientSearch.getSettings,
-                        partialUpdateObject: clientSearch.partialUpdateObject,
-                        partialUpdateObjects: clientSearch.partialUpdateObjects,
-                        deleteObject: clientSearch.deleteObject,
-                        deleteObjects: clientSearch.deleteObjects,
-                        deleteBy: clientSearch.deleteBy,
-                        clearObjects: clientSearch.clearObjects,
-                        browseObjects: clientSearch.browseObjects,
-                        getObjectPosition: clientSearch.getObjectPosition,
-                        findObject: clientSearch.findObject,
-                        exists: clientSearch.exists,
-                        saveSynonym: clientSearch.saveSynonym,
-                        saveSynonyms: clientSearch.saveSynonyms,
-                        getSynonym: clientSearch.getSynonym,
-                        searchSynonyms: clientSearch.searchSynonyms,
-                        browseSynonyms: clientSearch.browseSynonyms,
-                        deleteSynonym: clientSearch.deleteSynonym,
-                        clearSynonyms: clientSearch.clearSynonyms,
-                        replaceAllObjects: clientSearch.replaceAllObjects,
-                        replaceAllSynonyms: clientSearch.replaceAllSynonyms,
-                        searchRules: clientSearch.searchRules,
-                        getRule: clientSearch.getRule,
-                        deleteRule: clientSearch.deleteRule,
-                        saveRule: clientSearch.saveRule,
-                        saveRules: clientSearch.saveRules,
-                        replaceAllRules: clientSearch.replaceAllRules,
-                        browseRules: clientSearch.browseRules,
-                        clearRules: clientSearch.clearRules,
-                    },
-                });
+                return {
+                    ...clientSearch.initIndex(base)(indexName, {
+                        methods: {
+                            batch: clientSearch.batch,
+                            delete: clientSearch.deleteIndex,
+                            findAnswers: clientSearch.findAnswers,
+                            getObject: clientSearch.getObject,
+                            getObjects: clientSearch.getObjects,
+                            saveObject: clientSearch.saveObject,
+                            saveObjects: clientSearch.saveObjects,
+                            search: clientSearch.search,
+                            searchForFacetValues: clientSearch.searchForFacetValues,
+                            waitTask: clientSearch.waitTask,
+                            setSettings: clientSearch.setSettings,
+                            getSettings: clientSearch.getSettings,
+                            partialUpdateObject: clientSearch.partialUpdateObject,
+                            partialUpdateObjects: clientSearch.partialUpdateObjects,
+                            deleteObject: clientSearch.deleteObject,
+                            deleteObjects: clientSearch.deleteObjects,
+                            deleteBy: clientSearch.deleteBy,
+                            clearObjects: clientSearch.clearObjects,
+                            browseObjects: clientSearch.browseObjects,
+                            getObjectPosition: clientSearch.getObjectPosition,
+                            findObject: clientSearch.findObject,
+                            exists: clientSearch.exists,
+                            saveSynonym: clientSearch.saveSynonym,
+                            saveSynonyms: clientSearch.saveSynonyms,
+                            getSynonym: clientSearch.getSynonym,
+                            searchSynonyms: clientSearch.searchSynonyms,
+                            browseSynonyms: clientSearch.browseSynonyms,
+                            deleteSynonym: clientSearch.deleteSynonym,
+                            clearSynonyms: clientSearch.clearSynonyms,
+                            replaceAllObjects: clientSearch.replaceAllObjects,
+                            replaceAllSynonyms: clientSearch.replaceAllSynonyms,
+                            searchRules: clientSearch.searchRules,
+                            getRule: clientSearch.getRule,
+                            deleteRule: clientSearch.deleteRule,
+                            saveRule: clientSearch.saveRule,
+                            saveRules: clientSearch.saveRules,
+                            replaceAllRules: clientSearch.replaceAllRules,
+                            browseRules: clientSearch.browseRules,
+                            clearRules: clientSearch.clearRules,
+                        },
+                    }),
+                    saveObjectsWithTransformation: saveObjectsWithTransformation(indexName, ingestionTransporter),
+                    partialUpdateObjectsWithTransformation: partialUpdateObjectsWithTransformation(indexName, ingestionTransporter),
+                };
             },
             initAnalytics: () => (clientOptions) => {
                 return clientAnalytics.createAnalyticsClient({
@@ -2629,6 +2996,13 @@ function algoliasearch(appId, apiKey, options) {
                 searchClientOptions.logger.info('The `initRecommendation` method is deprecated. Use `initPersonalization` instead.');
                 return initPersonalization()(clientOptions);
             },
+            getRecommendations: recommend.getRecommendations,
+            getFrequentlyBoughtTogether: recommend.getFrequentlyBoughtTogether,
+            getLookingSimilar: recommend.getLookingSimilar,
+            getRecommendedForYou: recommend.getRecommendedForYou,
+            getRelatedProducts: recommend.getRelatedProducts,
+            getTrendingFacets: recommend.getTrendingFacets,
+            getTrendingItems: recommend.getTrendingItems,
         },
     });
 }
@@ -2640,11 +3014,11 @@ module.exports = algoliasearch;
 
 /***/ }),
 
-/***/ 178:
+/***/ 615:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 /* eslint-disable functional/immutable-data, import/no-commonjs */
-const algoliasearch = __nccwpck_require__(861);
+const algoliasearch = __nccwpck_require__(379);
 
 /**
  * The Common JS build is the default entry point for the Node environment. Keep in
@@ -2753,7 +3127,7 @@ var __webpack_exports__ = {};
 (() => {
 "use strict";
 
-const algoliasearch = __nccwpck_require__(178);
+const algoliasearch = __nccwpck_require__(615);
 const fs = __nccwpck_require__(147);
 const { exit } = __nccwpck_require__(282);
 const APPLICATION_ID = process.env.APPLICATION_ID;
