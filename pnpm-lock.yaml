@@ -2,14 +2,14 @@ lockfileVersion: 5.4
 
 specifiers:
   '@types/node': ^22.0.0
-  '@vercel/ncc': ^0.36.0
+  '@vercel/ncc': ^0.38.0
   algoliasearch: ^4.14.2
   parcel: ^2.7.0
   ts-node: ^10.9.1
   typescript: ^5.9.2
 
 dependencies:
-  '@vercel/ncc': 0.36.0
+  '@vercel/ncc': 0.38.3
   algoliasearch: 4.14.2
   typescript: 5.9.2
 
@@ -1009,8 +1009,8 @@ packages:
     resolution: {integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==}
     dev: true
 
-  /@vercel/ncc/0.36.0:
-    resolution: {integrity: sha512-/ZTUJ/ZkRt694k7KJNimgmHjtQcRuVwsST2Z6XfYveQIuBbHR+EqkTc1jfgPkQmMyk/vtpxo3nVxe8CNuau86A==}
+  /@vercel/ncc/0.38.3:
+    resolution: {integrity: sha512-rnK6hJBS6mwc+Bkab+PGPs9OiS0i/3kdTO+CkI8V0/VrW3vmz7O2Pxjw/owOlmo6PKEIxRSeZKv/kuL9itnpYA==}
     hasBin: true
     dev: false
 

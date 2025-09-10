@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/guzhongren/algolia-docsearch-upload-action#readme",
   "dependencies": {
-    "@vercel/ncc": "^0.36.0",
+    "@vercel/ncc": "^0.38.0",
     "algoliasearch": "^4.14.2",
     "typescript": "^5.0.0"
   },
