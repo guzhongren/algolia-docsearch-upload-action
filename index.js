@@ -44,7 +44,7 @@ module.exports = require("url");
 
 /***/ }),
 
-/***/ 890:
+/***/ 233:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -73,12 +73,12 @@ __export(node_exports, {
   apiClientVersion: () => apiClientVersion
 });
 module.exports = __toCommonJS(node_exports);
-var import_requester_node_http = __nccwpck_require__(385);
-var import_client_common2 = __nccwpck_require__(452);
+var import_requester_node_http = __nccwpck_require__(112);
+var import_client_common2 = __nccwpck_require__(717);
 
 // src/abtestingV3Client.ts
-var import_client_common = __nccwpck_require__(452);
-var apiClientVersion = "1.4.0";
+var import_client_common = __nccwpck_require__(717);
+var apiClientVersion = "1.5.0";
 var REGIONS = ["de", "us"];
 function getDefaultHosts(region) {
   const url = !region ? "analytics.algolia.com" : "analytics.{region}.algolia.com".replace("{region}", region);
@@ -540,7 +540,7 @@ function abtestingV3Client(appId, apiKey, region, options) {
 
 /***/ }),
 
-/***/ 933:
+/***/ 104:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -569,12 +569,12 @@ __export(node_exports, {
   apiClientVersion: () => apiClientVersion
 });
 module.exports = __toCommonJS(node_exports);
-var import_requester_node_http = __nccwpck_require__(385);
-var import_client_common2 = __nccwpck_require__(452);
+var import_requester_node_http = __nccwpck_require__(112);
+var import_client_common2 = __nccwpck_require__(717);
 
 // src/abtestingClient.ts
-var import_client_common = __nccwpck_require__(452);
-var apiClientVersion = "5.38.0";
+var import_client_common = __nccwpck_require__(717);
+var apiClientVersion = "5.39.0";
 var REGIONS = ["de", "us"];
 function getDefaultHosts(region) {
   const url = !region ? "analytics.algolia.com" : "analytics.{region}.algolia.com".replace("{region}", region);
@@ -990,7 +990,7 @@ function abtestingClient(appId, apiKey, region, options) {
 
 /***/ }),
 
-/***/ 773:
+/***/ 432:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -1019,12 +1019,12 @@ __export(node_exports, {
   apiClientVersion: () => apiClientVersion
 });
 module.exports = __toCommonJS(node_exports);
-var import_requester_node_http = __nccwpck_require__(385);
-var import_client_common2 = __nccwpck_require__(452);
+var import_requester_node_http = __nccwpck_require__(112);
+var import_client_common2 = __nccwpck_require__(717);
 
 // src/analyticsClient.ts
-var import_client_common = __nccwpck_require__(452);
-var apiClientVersion = "5.38.0";
+var import_client_common = __nccwpck_require__(717);
+var apiClientVersion = "5.39.0";
 var REGIONS = ["de", "us"];
 function getDefaultHosts(region) {
   const url = !region ? "analytics.algolia.com" : "analytics.{region}.algolia.com".replace("{region}", region);
@@ -2120,7 +2120,7 @@ function analyticsClient(appId, apiKey, region, options) {
 
 /***/ }),
 
-/***/ 452:
+/***/ 717:
 /***/ ((module) => {
 
 
@@ -2795,7 +2795,7 @@ var LogLevelEnum = {
 
 /***/ }),
 
-/***/ 631:
+/***/ 764:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -2824,12 +2824,12 @@ __export(node_exports, {
   insightsClient: () => insightsClient
 });
 module.exports = __toCommonJS(node_exports);
-var import_requester_node_http = __nccwpck_require__(385);
-var import_client_common2 = __nccwpck_require__(452);
+var import_requester_node_http = __nccwpck_require__(112);
+var import_client_common2 = __nccwpck_require__(717);
 
 // src/insightsClient.ts
-var import_client_common = __nccwpck_require__(452);
-var apiClientVersion = "5.38.0";
+var import_client_common = __nccwpck_require__(717);
+var apiClientVersion = "5.39.0";
 var REGIONS = ["de", "us"];
 function getDefaultHosts(region) {
   const url = !region ? "insights.algolia.io" : "insights.{region}.algolia.io".replace("{region}", region);
@@ -3089,7 +3089,7 @@ function insightsClient(appId, apiKey, region, options) {
 
 /***/ }),
 
-/***/ 133:
+/***/ 376:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -3118,12 +3118,12 @@ __export(node_exports, {
   personalizationClient: () => personalizationClient
 });
 module.exports = __toCommonJS(node_exports);
-var import_requester_node_http = __nccwpck_require__(385);
-var import_client_common2 = __nccwpck_require__(452);
+var import_requester_node_http = __nccwpck_require__(112);
+var import_client_common2 = __nccwpck_require__(717);
 
 // src/personalizationClient.ts
-var import_client_common = __nccwpck_require__(452);
-var apiClientVersion = "5.38.0";
+var import_client_common = __nccwpck_require__(717);
+var apiClientVersion = "5.39.0";
 var REGIONS = ["eu", "us"];
 function getDefaultHosts(region) {
   const url = "personalization.{region}.algolia.com".replace("{region}", region);
@@ -3443,7 +3443,7 @@ function personalizationClient(appId, apiKey, region, options) {
 
 /***/ }),
 
-/***/ 821:
+/***/ 544:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -3472,12 +3472,12 @@ __export(node_exports, {
   querySuggestionsClient: () => querySuggestionsClient
 });
 module.exports = __toCommonJS(node_exports);
-var import_requester_node_http = __nccwpck_require__(385);
-var import_client_common2 = __nccwpck_require__(452);
+var import_requester_node_http = __nccwpck_require__(112);
+var import_client_common2 = __nccwpck_require__(717);
 
 // src/querySuggestionsClient.ts
-var import_client_common = __nccwpck_require__(452);
-var apiClientVersion = "5.38.0";
+var import_client_common = __nccwpck_require__(717);
+var apiClientVersion = "5.39.0";
 var REGIONS = ["eu", "us"];
 function getDefaultHosts(region) {
   const url = "query-suggestions.{region}.algolia.com".replace("{region}", region);
@@ -3857,7 +3857,7 @@ function querySuggestionsClient(appId, apiKey, region, options) {
 
 /***/ }),
 
-/***/ 421:
+/***/ 938:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -3887,12 +3887,12 @@ __export(node_exports, {
 });
 module.exports = __toCommonJS(node_exports);
 var import_node_crypto = __nccwpck_require__(982);
-var import_requester_node_http = __nccwpck_require__(385);
-var import_client_common2 = __nccwpck_require__(452);
+var import_requester_node_http = __nccwpck_require__(112);
+var import_client_common2 = __nccwpck_require__(717);
 
 // src/searchClient.ts
-var import_client_common = __nccwpck_require__(452);
-var apiClientVersion = "5.38.0";
+var import_client_common = __nccwpck_require__(717);
+var apiClientVersion = "5.39.0";
 function getDefaultHosts(appId) {
   return [
     {
@@ -6386,7 +6386,7 @@ function searchClient(appId, apiKey, options) {
 
 /***/ }),
 
-/***/ 257:
+/***/ 646:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -6418,12 +6418,12 @@ __export(node_exports, {
   isSubscriptionTrigger: () => isSubscriptionTrigger
 });
 module.exports = __toCommonJS(node_exports);
-var import_requester_node_http = __nccwpck_require__(385);
-var import_client_common2 = __nccwpck_require__(452);
+var import_requester_node_http = __nccwpck_require__(112);
+var import_client_common2 = __nccwpck_require__(717);
 
 // src/ingestionClient.ts
-var import_client_common = __nccwpck_require__(452);
-var apiClientVersion = "1.38.0";
+var import_client_common = __nccwpck_require__(717);
+var apiClientVersion = "1.39.0";
 var REGIONS = ["eu", "us"];
 function getDefaultHosts(region) {
   const url = "data.{region}.algolia.com".replace("{region}", region);
@@ -8576,7 +8576,7 @@ function ingestionClient(appId, apiKey, region, options) {
 
 /***/ }),
 
-/***/ 729:
+/***/ 560:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -8605,12 +8605,12 @@ __export(node_exports, {
   monitoringClient: () => monitoringClient
 });
 module.exports = __toCommonJS(node_exports);
-var import_requester_node_http = __nccwpck_require__(385);
-var import_client_common2 = __nccwpck_require__(452);
+var import_requester_node_http = __nccwpck_require__(112);
+var import_client_common2 = __nccwpck_require__(717);
 
 // src/monitoringClient.ts
-var import_client_common = __nccwpck_require__(452);
-var apiClientVersion = "1.38.0";
+var import_client_common = __nccwpck_require__(717);
+var apiClientVersion = "1.39.0";
 function getDefaultHosts() {
   return [{ url: "status.algolia.com", accept: "readWrite", protocol: "https" }];
 }
@@ -8990,7 +8990,7 @@ function monitoringClient(appId, apiKey, options) {
 
 /***/ }),
 
-/***/ 801:
+/***/ 394:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -9019,12 +9019,12 @@ __export(node_exports, {
   recommendClient: () => recommendClient
 });
 module.exports = __toCommonJS(node_exports);
-var import_requester_node_http = __nccwpck_require__(385);
-var import_client_common2 = __nccwpck_require__(452);
+var import_requester_node_http = __nccwpck_require__(112);
+var import_client_common2 = __nccwpck_require__(717);
 
 // src/recommendClient.ts
-var import_client_common = __nccwpck_require__(452);
-var apiClientVersion = "5.38.0";
+var import_client_common = __nccwpck_require__(717);
+var apiClientVersion = "5.39.0";
 function getDefaultHosts(appId) {
   return [
     {
@@ -9448,7 +9448,7 @@ function recommendClient(appId, apiKey, options) {
 
 /***/ }),
 
-/***/ 385:
+/***/ 112:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -9571,7 +9571,7 @@ function createHttpRequester({
 
 /***/ }),
 
-/***/ 65:
+/***/ 262:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -9601,33 +9601,33 @@ __export(node_exports, {
   apiClientVersion: () => import_client_search.apiClientVersion
 });
 module.exports = __toCommonJS(node_exports);
-var import_abtesting = __nccwpck_require__(890);
-var import_client_abtesting = __nccwpck_require__(933);
-var import_client_analytics = __nccwpck_require__(773);
-var import_client_insights = __nccwpck_require__(631);
-var import_client_personalization = __nccwpck_require__(133);
-var import_client_query_suggestions = __nccwpck_require__(821);
-var import_client_search2 = __nccwpck_require__(421);
-var import_ingestion = __nccwpck_require__(257);
-var import_monitoring = __nccwpck_require__(729);
-var import_recommend = __nccwpck_require__(801);
+var import_abtesting = __nccwpck_require__(233);
+var import_client_abtesting = __nccwpck_require__(104);
+var import_client_analytics = __nccwpck_require__(432);
+var import_client_insights = __nccwpck_require__(764);
+var import_client_personalization = __nccwpck_require__(376);
+var import_client_query_suggestions = __nccwpck_require__(544);
+var import_client_search2 = __nccwpck_require__(938);
+var import_ingestion = __nccwpck_require__(646);
+var import_monitoring = __nccwpck_require__(560);
+var import_recommend = __nccwpck_require__(394);
 
 // builds/models.ts
 var models_exports = {};
 __export(models_exports, {
   apiClientVersion: () => import_client_search.apiClientVersion
 });
-var import_client_search = __nccwpck_require__(421);
-__reExport(models_exports, __nccwpck_require__(890));
-__reExport(models_exports, __nccwpck_require__(933));
-__reExport(models_exports, __nccwpck_require__(773));
-__reExport(models_exports, __nccwpck_require__(631));
-__reExport(models_exports, __nccwpck_require__(133));
-__reExport(models_exports, __nccwpck_require__(821));
-__reExport(models_exports, __nccwpck_require__(421));
-__reExport(models_exports, __nccwpck_require__(257));
-__reExport(models_exports, __nccwpck_require__(729));
-__reExport(models_exports, __nccwpck_require__(801));
+var import_client_search = __nccwpck_require__(938);
+__reExport(models_exports, __nccwpck_require__(233));
+__reExport(models_exports, __nccwpck_require__(104));
+__reExport(models_exports, __nccwpck_require__(432));
+__reExport(models_exports, __nccwpck_require__(764));
+__reExport(models_exports, __nccwpck_require__(376));
+__reExport(models_exports, __nccwpck_require__(544));
+__reExport(models_exports, __nccwpck_require__(938));
+__reExport(models_exports, __nccwpck_require__(646));
+__reExport(models_exports, __nccwpck_require__(560));
+__reExport(models_exports, __nccwpck_require__(394));
 
 // builds/node.ts
 __reExport(node_exports, models_exports, module.exports);
@@ -9860,7 +9860,7 @@ function algoliasearch(appId, apiKey, options) {
 /************************************************************************/
 var __webpack_exports__ = {};
 
-const algoliasearch = __nccwpck_require__(65);
+const algoliasearch = __nccwpck_require__(262);
 const fs = __nccwpck_require__(896);
 const { exit } = __nccwpck_require__(932);
 const APPLICATION_ID = process.env.APPLICATION_ID;
