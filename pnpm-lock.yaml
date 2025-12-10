@@ -1,22 +1,22 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@types/node': ^22.18.1
-  '@vercel/ncc': ^0.38.0
+  '@types/node': ^22.0.0
+  '@vercel/ncc': ^0.38.4
   algoliasearch: ^4.14.2
   parcel: ^2.7.0
   ts-node: ^10.9.1
-  typescript: ^5.9.2
+  typescript: ^5.0.0
 
 dependencies:
-  '@vercel/ncc': 0.38.3
+  '@vercel/ncc': 0.38.4
   algoliasearch: 4.14.2
   typescript: 5.9.2
 
 devDependencies:
   '@types/node': 22.18.1
   parcel: 2.7.0
-  ts-node: 10.9.1_fsllo2wddfuwk2kxzbvr67otdq
+  ts-node: 10.9.1_risekfks4wsxydooldtuchtvym
 
 packages:
 
@@ -1009,8 +1009,8 @@ packages:
     resolution: {integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==}
     dev: true
 
-  /@vercel/ncc/0.38.3:
-    resolution: {integrity: sha512-rnK6hJBS6mwc+Bkab+PGPs9OiS0i/3kdTO+CkI8V0/VrW3vmz7O2Pxjw/owOlmo6PKEIxRSeZKv/kuL9itnpYA==}
+  /@vercel/ncc/0.38.4:
+    resolution: {integrity: sha512-8LwjnlP39s08C08J5NstzriPvW1SP8Zfpp1BvC2sI35kPeZnHfxVkCwu4/+Wodgnd60UtT1n8K8zw+Mp7J9JmQ==}
     hasBin: true
     dev: false
 
@@ -1733,7 +1733,7 @@ packages:
     resolution: {integrity: sha512-qsdtZH+vMoCARQtyod4imc2nIJwg9Cc7lPRrw9CzF8ZKR0khdr8+2nX80PBhET3tcyTtJDxAffGh2rXH4tyU8A==}
     dev: true
 
-  /ts-node/10.9.1_fsllo2wddfuwk2kxzbvr67otdq:
+  /ts-node/10.9.1_risekfks4wsxydooldtuchtvym:
     resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
     hasBin: true
     peerDependencies:
