@@ -1,12 +1,12 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@types/node': ^22.18.1
+  '@types/node': ^22.19.11
   '@vercel/ncc': ^0.38.0
   algoliasearch: ^4.14.2
   parcel: ^2.7.0
   ts-node: ^10.9.1
-  typescript: ^5.9.2
+  typescript: ^5.0.0
 
 dependencies:
   '@vercel/ncc': 0.38.3
@@ -14,9 +14,9 @@ dependencies:
   typescript: 5.9.2
 
 devDependencies:
-  '@types/node': 22.18.1
+  '@types/node': 22.19.11
   parcel: 2.7.0
-  ts-node: 10.9.1_fsllo2wddfuwk2kxzbvr67otdq
+  ts-node: 10.9.1_yjjpxjefceu5sro677eoitxyiu
 
 packages:
 
@@ -999,8 +999,8 @@ packages:
     resolution: {integrity: sha512-yOlFc+7UtL/89t2ZhjPvvB/DeAr3r+Dq58IgzsFkOAvVC6NMJXmCGjbptdXdR9qsX7pKcTL+s87FtYREi2dEEQ==}
     dev: true
 
-  /@types/node/22.18.1:
-    resolution: {integrity: sha512-rzSDyhn4cYznVG+PCzGe1lwuMYJrcBS1fc3JqSa2PvtABwWo+dZ1ij5OVok3tqfpEBCBoaR4d7upFJk73HRJDw==}
+  /@types/node/22.19.11:
+    resolution: {integrity: sha512-BH7YwL6rA93ReqeQS1c4bsPpcfOmJasG+Fkr6Y59q83f9M1WcBRHR2vM+P9eOisYRcN3ujQoiZY8uk5W+1WL8w==}
     dependencies:
       undici-types: 6.21.0
     dev: true
@@ -1733,7 +1733,7 @@ packages:
     resolution: {integrity: sha512-qsdtZH+vMoCARQtyod4imc2nIJwg9Cc7lPRrw9CzF8ZKR0khdr8+2nX80PBhET3tcyTtJDxAffGh2rXH4tyU8A==}
     dev: true
 
-  /ts-node/10.9.1_fsllo2wddfuwk2kxzbvr67otdq:
+  /ts-node/10.9.1_yjjpxjefceu5sro677eoitxyiu:
     resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
     hasBin: true
     peerDependencies:
@@ -1752,7 +1752,7 @@ packages:
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.3
-      '@types/node': 22.18.1
+      '@types/node': 22.19.11
       acorn: 8.8.1
       acorn-walk: 8.2.0
       arg: 4.1.3
