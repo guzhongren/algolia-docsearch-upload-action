@@ -44,7 +44,7 @@ module.exports = require("url");
 
 /***/ }),
 
-/***/ 949:
+/***/ 378:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -73,12 +73,12 @@ __export(node_exports, {
   apiClientVersion: () => apiClientVersion
 });
 module.exports = __toCommonJS(node_exports);
-var import_client_common2 = __nccwpck_require__(533);
-var import_requester_node_http = __nccwpck_require__(852);
+var import_client_common2 = __nccwpck_require__(776);
+var import_requester_node_http = __nccwpck_require__(193);
 
 // src/abtestingV3Client.ts
-var import_client_common = __nccwpck_require__(533);
-var apiClientVersion = "1.14.0";
+var import_client_common = __nccwpck_require__(776);
+var apiClientVersion = "1.14.1";
 var REGIONS = ["de", "us"];
 function getDefaultHosts(region) {
   const url = !region ? "analytics.algolia.com" : "analytics.{region}.algolia.com".replace("{region}", region);
@@ -501,7 +501,7 @@ function abtestingV3Client(appId, apiKey, region, options) {
 
 /***/ }),
 
-/***/ 860:
+/***/ 533:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -530,12 +530,12 @@ __export(node_exports, {
   apiClientVersion: () => apiClientVersion
 });
 module.exports = __toCommonJS(node_exports);
-var import_client_common2 = __nccwpck_require__(533);
-var import_requester_node_http = __nccwpck_require__(852);
+var import_client_common2 = __nccwpck_require__(776);
+var import_requester_node_http = __nccwpck_require__(193);
 
 // src/abtestingClient.ts
-var import_client_common = __nccwpck_require__(533);
-var apiClientVersion = "5.48.0";
+var import_client_common = __nccwpck_require__(776);
+var apiClientVersion = "5.48.1";
 var REGIONS = ["de", "us"];
 function getDefaultHosts(region) {
   const url = !region ? "analytics.algolia.com" : "analytics.{region}.algolia.com".replace("{region}", region);
@@ -915,7 +915,7 @@ function abtestingClient(appId, apiKey, region, options) {
 
 /***/ }),
 
-/***/ 188:
+/***/ 77:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -944,12 +944,12 @@ __export(node_exports, {
   apiClientVersion: () => apiClientVersion
 });
 module.exports = __toCommonJS(node_exports);
-var import_client_common2 = __nccwpck_require__(533);
-var import_requester_node_http = __nccwpck_require__(852);
+var import_client_common2 = __nccwpck_require__(776);
+var import_requester_node_http = __nccwpck_require__(193);
 
 // src/analyticsClient.ts
-var import_client_common = __nccwpck_require__(533);
-var apiClientVersion = "5.48.0";
+var import_client_common = __nccwpck_require__(776);
+var apiClientVersion = "5.48.1";
 var REGIONS = ["de", "us"];
 function getDefaultHosts(region) {
   const url = !region ? "analytics.algolia.com" : "analytics.{region}.algolia.com".replace("{region}", region);
@@ -1392,7 +1392,7 @@ function createAnalyticsClient({
       return transporter.request(request, requestOptions);
     },
     /**
-     * Retrieves the purchase rate for all your searches with at least one purchase event, including a daily breakdown.  By default, the analyzed period includes the last eight days including the current day.  The rate is the number of purchase conversion events divided by the number of tracked searches. A search is tracked if it returns a query ID (`clickAnalytics` is `true`). This differs from the response\'s `count`, which shows the overall number of searches, including those where `clickAnalytics` is `false`.  **There\'s a difference between a 0 and null purchase rate when `clickAnalytics` is enabled:**  - **Null** means there were no queries: since Algolia didn\'t receive any events, the purchase rate is null. - **0** mean there _were_ queries but no [purchase conversion events](https://www.algolia.com/doc/guides/sending-events/getting-started) were received.
+     * Retrieves the purchase rate for all your searches with at least one purchase event, including a daily breakdown.  By default, the analyzed period includes the last eight days, including the current day.  The rate is purchase conversion events divided by tracked searches. A search is tracked if it returns a query ID (`clickAnalytics` is `true`). This differs from the response\'s `count`, which includes searches where `clickAnalytics` is `false`.  **There\'s a difference between a 0 and null purchase rate when `clickAnalytics` is enabled:**  - **Null** means there were no queries. Algolia didn\'t receive any events, so the purchase rate is null. - **0** means there were queries but no [purchase conversion events](https://www.algolia.com/doc/guides/sending-events/getting-started) were received.
      *
      * Required API Key ACLs:
      *  - analytics
@@ -1834,7 +1834,7 @@ function createAnalyticsClient({
       return transporter.request(request, requestOptions);
     },
     /**
-     * Retrieves the object IDs of the 1,000 most frequent search results.  If you set the `clickAnalytics` query parameter to true, the response also includes:  - Tracked searches count. Tracked searches are Search API requests with the `clickAnalytics` parameter set to `true`. This differs from the response\'s `count`, which shows the overall number of searches, including those where `clickAnalytics` is `false`. - Click count - Click-through rate (CTR) - Conversion count - Conversion rate (CR) - Average click position  If you set the `revenueAnalytics` parameter to `true`, the response also includes:  - Add-to-cart count - Add-to-cart rate (ATCR) - Purchase count - Purchase rate - Revenue details for each currency  **There\'s a difference between 0% rates and null rates:**  - **Null** means there were no queries: since Algolia didn\'t receive any events, the rates (CTR, CR, ATCR, purchase rate) are null. - **0% rates** mean there _were_ queries but no [click or conversion events](https://www.algolia.com/doc/guides/sending-events/getting-started) were received.
+     * Retrieves the object IDs of the 1,000 most frequent search results.  If you set the `clickAnalytics` query parameter to `true`, the response also includes:  - Tracked searches count.   Tracked searches are Search API requests with `clickAnalytics` set to `true`.   This differs from the response\'s `count`, which includes searches where `clickAnalytics` is `false`. - Click count - Click-through rate (CTR) - Conversion count - Conversion rate (CR) - Average click position  If you set the `revenueAnalytics` parameter to `true`, the response also includes:  - Add-to-cart count - Add-to-cart rate (ATCR) - Purchase count - Purchase rate - Revenue details for each currency  **There\'s a difference between 0% rates and null rates:**  - **Null** means there were no queries. Algolia didn\'t receive any events, so rates are null. - **0% rates** mean there were queries but no [click or conversion events](https://www.algolia.com/doc/guides/sending-events/getting-started) were received.
      *
      * Required API Key ACLs:
      *  - analytics
@@ -1893,7 +1893,7 @@ function createAnalyticsClient({
       return transporter.request(request, requestOptions);
     },
     /**
-     * Returns the most popular searches. For each search, it also includes the average number of hits.  If you set the `clickAnalytics` query parameter to `true`, the response also includes  - Tracked searches count. Tracked searches are Search API requests with the `clickAnalytics` parameter set to `true`. This differs from the response\'s `count`, which shows the overall number of searches, including those where `clickAnalytics` is `false`. - Click count - Click-through rate (CTR) - Conversion count - Conversion rate (CR) - Average click position  If you set the `revenueAnalytics` query parameter to `true`, the response also includes:  - Add-to-cart count - Add-to-cart rate (ATCR) - Purchase count - Purchase rate - Revenue details for each currency  **There\'s a difference between 0% rates and null rates:**  - **Null** means there were no queries: since Algolia didn\'t receive any events, the rates (CTR, CR, ATCR, purchase rate) are null. - **0% rates** mean there _were_ queries but no [click or conversion events](https://www.algolia.com/doc/guides/sending-events/getting-started) were received.
+     * Returns the most popular searches. For each search, it also includes the average number of hits.  If you set the `clickAnalytics` query parameter to `true`, the response also includes:  - Tracked searches count   Tracked searches are Search API requests with `clickAnalytics` set to `true`.   This differs from the response\'s `count`, which includes searches where `clickAnalytics` is `false`. - Click count - Click-through rate (CTR) - Conversion count - Conversion rate (CR) - Average click position  If you set the `revenueAnalytics` query parameter to `true`, the response also includes:  - Add-to-cart count - Add-to-cart rate (ATCR) - Purchase count - Purchase rate - Revenue details for each currency  **There\'s a difference between 0% rates and null rates:**  - **Null** means there were no queries. Algolia didn\'t receive any events, so rates are null. - **0% rates** mean there were queries but no [click or conversion events](https://www.algolia.com/doc/guides/sending-events/getting-started) were received.
      *
      * Required API Key ACLs:
      *  - analytics
@@ -2045,7 +2045,7 @@ function analyticsClient(appId, apiKey, region, options) {
 
 /***/ }),
 
-/***/ 533:
+/***/ 776:
 /***/ ((module) => {
 
 
@@ -2717,7 +2717,7 @@ var LogLevelEnum = {
 
 /***/ }),
 
-/***/ 724:
+/***/ 267:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -2746,12 +2746,12 @@ __export(node_exports, {
   insightsClient: () => insightsClient
 });
 module.exports = __toCommonJS(node_exports);
-var import_client_common2 = __nccwpck_require__(533);
-var import_requester_node_http = __nccwpck_require__(852);
+var import_client_common2 = __nccwpck_require__(776);
+var import_requester_node_http = __nccwpck_require__(193);
 
 // src/insightsClient.ts
-var import_client_common = __nccwpck_require__(533);
-var apiClientVersion = "5.48.0";
+var import_client_common = __nccwpck_require__(776);
+var apiClientVersion = "5.48.1";
 var REGIONS = ["de", "us"];
 function getDefaultHosts(region) {
   const url = !region ? "insights.algolia.io" : "insights.{region}.algolia.io".replace("{region}", region);
@@ -3011,7 +3011,7 @@ function insightsClient(appId, apiKey, region, options) {
 
 /***/ }),
 
-/***/ 68:
+/***/ 141:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -3040,12 +3040,12 @@ __export(node_exports, {
   personalizationClient: () => personalizationClient
 });
 module.exports = __toCommonJS(node_exports);
-var import_client_common2 = __nccwpck_require__(533);
-var import_requester_node_http = __nccwpck_require__(852);
+var import_client_common2 = __nccwpck_require__(776);
+var import_requester_node_http = __nccwpck_require__(193);
 
 // src/personalizationClient.ts
-var import_client_common = __nccwpck_require__(533);
-var apiClientVersion = "5.48.0";
+var import_client_common = __nccwpck_require__(776);
+var apiClientVersion = "5.48.1";
 var REGIONS = ["eu", "us"];
 function getDefaultHosts(region) {
   const url = "personalization.{region}.algolia.com".replace("{region}", region);
@@ -3365,7 +3365,7 @@ function personalizationClient(appId, apiKey, region, options) {
 
 /***/ }),
 
-/***/ 292:
+/***/ 725:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -3394,12 +3394,12 @@ __export(node_exports, {
   querySuggestionsClient: () => querySuggestionsClient
 });
 module.exports = __toCommonJS(node_exports);
-var import_client_common2 = __nccwpck_require__(533);
-var import_requester_node_http = __nccwpck_require__(852);
+var import_client_common2 = __nccwpck_require__(776);
+var import_requester_node_http = __nccwpck_require__(193);
 
 // src/querySuggestionsClient.ts
-var import_client_common = __nccwpck_require__(533);
-var apiClientVersion = "5.48.0";
+var import_client_common = __nccwpck_require__(776);
+var apiClientVersion = "5.48.1";
 var REGIONS = ["eu", "us"];
 function getDefaultHosts(region) {
   const url = "query-suggestions.{region}.algolia.com".replace("{region}", region);
@@ -3779,7 +3779,7 @@ function querySuggestionsClient(appId, apiKey, region, options) {
 
 /***/ }),
 
-/***/ 754:
+/***/ 297:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -3809,12 +3809,12 @@ __export(node_exports, {
 });
 module.exports = __toCommonJS(node_exports);
 var import_node_crypto = __nccwpck_require__(982);
-var import_client_common2 = __nccwpck_require__(533);
-var import_requester_node_http = __nccwpck_require__(852);
+var import_client_common2 = __nccwpck_require__(776);
+var import_requester_node_http = __nccwpck_require__(193);
 
 // src/searchClient.ts
-var import_client_common = __nccwpck_require__(533);
-var apiClientVersion = "5.48.0";
+var import_client_common = __nccwpck_require__(776);
+var apiClientVersion = "5.48.1";
 function getDefaultHosts(appId) {
   return [
     {
@@ -4569,7 +4569,7 @@ function createSearchClient({
       return transporter.request(request, requestOptions);
     },
     /**
-     * Retrieves records from an index, up to 1,000 per request.  While searching retrieves _hits_ (records augmented with attributes for highlighting and ranking details), browsing _just_ returns matching records. This can be useful if you want to export your indices.  - The Analytics API doesn\'t collect data when using `browse`. - Records are ranked by attributes and custom ranking. - There\'s no ranking for: typo-tolerance, number of matched words, proximity, geo distance.  Browse requests automatically apply these settings:  - `advancedSyntax`: `false` - `attributesToHighlight`: `[]` - `attributesToSnippet`: `[]` - `distinct`: `false` - `enablePersonalization`: `false` - `enableRules`: `false` - `facets`: `[]` - `getRankingInfo`: `false` - `ignorePlurals`: `false` - `optionalFilters`: `[]` - `typoTolerance`: `true` or `false` (`min` and `strict` evaluate to `true`)  If you send these parameters with your browse requests, they\'ll be ignored.
+     * Retrieves records from an index, up to 1,000 per request.  Searching returns _hits_ (records augmented with highlighting and ranking details). Browsing returns matching records only. Use browse to export your indices.  - The Analytics API doesn\'t collect data when using `browse`. - Records are ranked by attributes and custom ranking. - There\'s no ranking for typo tolerance, number of matched words, proximity, or geo distance.  Browse requests automatically apply these settings:  - `advancedSyntax`: `false` - `attributesToHighlight`: `[]` - `attributesToSnippet`: `[]` - `distinct`: `false` - `enablePersonalization`: `false` - `enableRules`: `false` - `facets`: `[]` - `getRankingInfo`: `false` - `ignorePlurals`: `false` - `optionalFilters`: `[]` - `typoTolerance`: `true` or `false` (`min` and `strict` evaluate to `true`)  If you send these parameters with your browse requests, they\'re ignored.
      *
      * Required API Key ACLs:
      *  - browse
@@ -4792,7 +4792,7 @@ function createSearchClient({
       return transporter.request(request, requestOptions);
     },
     /**
-     * This operation doesn\'t accept empty filters.  This operation is resource-intensive. You should only use it if you can\'t get the object IDs of the records you want to delete. It\'s more efficient to get a list of object IDs with the [`browse` operation](https://www.algolia.com/doc/rest-api/search/browse), and then delete the records using the [`batch` operation](https://www.algolia.com/doc/rest-api/search/batch).  This operation is subject to [indexing rate limits](https://support.algolia.com/hc/articles/4406975251089-Is-there-a-rate-limit-for-indexing-on-Algolia).
+     * This operation doesn\'t accept empty filters.  This operation is resource-intensive. Use it only if you can\'t get the object IDs of the records you want to delete. It\'s more efficient to get a list of object IDs with the [`browse` operation](https://www.algolia.com/doc/rest-api/search/browse), and then delete the records using the [`batch` operation](https://www.algolia.com/doc/rest-api/search/batch).  This operation is subject to [indexing rate limits](https://support.algolia.com/hc/articles/4406975251089-Is-there-a-rate-limit-for-indexing-on-Algolia).
      *
      * Required API Key ACLs:
      *  - deleteIndex
@@ -5473,7 +5473,7 @@ function createSearchClient({
       return transporter.request(request, requestOptions);
     },
     /**
-     * Copies or moves (renames) an index within the same Algolia application.  - Existing destination indices are overwritten, except for their analytics data. - If the destination index doesn\'t exist yet, it\'ll be created. - This operation is resource-intensive.  **Copy**  - Copying a source index that doesn\'t exist creates a new index with 0 records and default settings. - The API keys of the source index are merged with the existing keys in the destination index. - You can\'t copy the `enableReRanking`, `mode`, and `replicas` settings. - You can\'t copy to a destination index that already has replicas. - Be aware of the [size limits](https://www.algolia.com/doc/guides/scaling/algolia-service-limits/#application-record-and-index-limits). - Related guide: [Copy indices](https://www.algolia.com/doc/guides/sending-and-managing-data/manage-indices-and-apps/manage-indices/how-to/copy-indices)  **Move**  - Moving a source index that doesn\'t exist is ignored without returning an error. - When moving an index, the analytics data keeps its original name, and a new set of analytics data is started for the new name.   To access the original analytics in the dashboard, create an index with the original name. - If the destination index has replicas, moving will overwrite the existing index and copy the data to the replica indices. - Related guide: [Move indices](https://www.algolia.com/doc/guides/sending-and-managing-data/manage-indices-and-apps/manage-indices/how-to/move-indices).  This operation is subject to [indexing rate limits](https://support.algolia.com/hc/articles/4406975251089-Is-there-a-rate-limit-for-indexing-on-Algolia).
+     * Copies or moves (renames) an index within the same Algolia application.  Notes: - Existing destination indices are overwritten, except for their analytics data. - If the destination index doesn\'t exist yet, it\'s created. - This operation is resource-intensive.  **Copy**  - If the source index doesn\'t exist, copying creates a new index with 0 records and default settings. - API keys from the source index are merged with the existing keys in the destination index. - You can\'t copy the `enableReRanking`, `mode`, and `replicas` settings. - You can\'t copy to a destination index that already has replicas. - Be aware of the [size limits](https://www.algolia.com/doc/guides/scaling/algolia-service-limits/#application-record-and-index-limits). - For more information, see [Copy indices](https://www.algolia.com/doc/guides/sending-and-managing-data/manage-indices-and-apps/manage-indices/how-to/copy-indices).  **Move**  - If the source index doesn\'t exist, moving is ignored without returning an error. - When moving an index, the analytics data keeps its original name, and a new set of analytics data is started for the new name.   To access the original analytics in the dashboard, create an index with the original name. - If the destination index has replicas, moving will overwrite the existing index and copy the data to the replica indices. - For more information, see [Move indices](https://www.algolia.com/doc/guides/sending-and-managing-data/manage-indices-and-apps/manage-indices/how-to/move-indices).  This operation is subject to [indexing rate limits](https://support.algolia.com/hc/articles/4406975251089-Is-there-a-rate-limit-for-indexing-on-Algolia).
      *
      * Required API Key ACLs:
      *  - addObject
@@ -5508,7 +5508,7 @@ function createSearchClient({
       return transporter.request(request, requestOptions);
     },
     /**
-     * Adds new attributes to a record, or updates existing ones.  - If a record with the specified object ID doesn\'t exist,   a new record is added to the index **if** `createIfNotExists` is true. - If the index doesn\'t exist yet, this method creates a new index. - You can use any first-level attribute but not nested attributes.   If you specify a nested attribute, this operation replaces its first-level ancestor.  To update an attribute without pushing the entire record, you can use these built-in operations. These operations can be helpful if you don\'t have access to your initial data.  - Increment: increment a numeric attribute - Decrement: decrement a numeric attribute - Add: append a number or string element to an array attribute - Remove: remove all matching number or string elements from an array attribute made of numbers or strings - AddUnique: add a number or string element to an array attribute made of numbers or strings only if it\'s not already present - IncrementFrom: increment a numeric integer attribute only if the provided value matches the current value, and otherwise ignore the whole object update. For example, if you pass an IncrementFrom value of 2 for the version attribute, but the current value of the attribute is 1, the engine ignores the update. If the object doesn\'t exist, the engine only creates it if you pass an IncrementFrom value of 0. - IncrementSet: increment a numeric integer attribute only if the provided value is greater than the current value, and otherwise ignore the whole object update. For example, if you pass an IncrementSet value of 2 for the version attribute, and the current value of the attribute is 1, the engine updates the object. If the object doesn\'t exist yet, the engine only creates it if you pass an IncrementSet value greater than 0.  You can specify an operation by providing an object with the attribute to update as the key and its value being an object with the following properties:  - _operation: the operation to apply on the attribute - value: the right-hand side argument to the operation, for example, increment or decrement step, value to add or remove.  When updating multiple attributes or using multiple operations targeting the same record, you should use a single partial update for faster processing.  This operation is subject to [indexing rate limits](https://support.algolia.com/hc/articles/4406975251089-Is-there-a-rate-limit-for-indexing-on-Algolia).
+     * Adds new attributes to a record, or updates existing ones.  - If a record with the specified object ID doesn\'t exist,   a new record is added to the index **if** `createIfNotExists` is true. - If the index doesn\'t exist yet, this method creates a new index. - Use first-level attributes only. Nested attributes aren\'t supported.   If you specify a nested attribute, this operation replaces its first-level ancestor.  To update attributes without replacing the full record, use these built-in operations. These operations are useful when the initial data isn\'t available.  - `Increment`: increment a numeric attribute. - `Decrement`: decrement a numeric attribute. - `Add`: append a number or string element to an array attribute. - `Remove`: remove all matching number or string elements from an array attribute made of numbers or strings. - `AddUnique`: add a number or string element to an array attribute made of numbers or strings only if it\'s not already present. - `IncrementFrom`: increment a numeric integer attribute only if the provided value matches the current value. Otherwise, the update is ignored.   Example: If you pass an `IncrementFrom` value of 2 for the `version` attribute but the current value is 1, the API ignores the update.   If the object doesn\'t exist, the API only creates it if you pass an `IncrementFrom` value of 0. - `IncrementSet`: increment a numeric integer attribute only if the provided value is greater than the current value. Otherwise, the update is ignored.   Example: If you pass an `IncrementSet` value of 2 for the `version` attribute and the current value is 1, the API updates the object.   If the object doesn\'t exist yet, the API only creates it if you pass an `IncrementSet` value greater than 0.  Specify an operation by providing an object with the attribute to update as the key and its value as an object with these properties:  - `_operation`: the operation to apply on the attribute. - `value`: the right-hand side argument to the operation, for example, increment or decrement step, or a value to add or remove.  When updating multiple attributes or using multiple operations targeting the same record, use a single partial update for faster processing.  This operation is subject to [indexing rate limits](https://support.algolia.com/hc/articles/4406975251089-Is-there-a-rate-limit-for-indexing-on-Algolia).
      *
      * Required API Key ACLs:
      *  - addObject
@@ -6317,7 +6317,7 @@ function searchClient(appId, apiKey, options) {
 
 /***/ }),
 
-/***/ 174:
+/***/ 341:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -6349,12 +6349,12 @@ __export(node_exports, {
   isSubscriptionTrigger: () => isSubscriptionTrigger
 });
 module.exports = __toCommonJS(node_exports);
-var import_client_common2 = __nccwpck_require__(533);
-var import_requester_node_http = __nccwpck_require__(852);
+var import_client_common2 = __nccwpck_require__(776);
+var import_requester_node_http = __nccwpck_require__(193);
 
 // src/ingestionClient.ts
-var import_client_common = __nccwpck_require__(533);
-var apiClientVersion = "1.48.0";
+var import_client_common = __nccwpck_require__(776);
+var apiClientVersion = "1.48.1";
 var REGIONS = ["eu", "us"];
 function getDefaultHosts(region) {
   const url = "data.{region}.algolia.com".replace("{region}", region);
@@ -6644,7 +6644,7 @@ function createIngestionClient({
       return transporter.request(request, requestOptions);
     },
     /**
-     * Creates a new task using the v1 endpoint, please use `createTask` instead.
+     * Creates a new task using the v1 endpoint. Use `createTask` instead.
      *
      * Required API Key ACLs:
      *  - addObject
@@ -6915,7 +6915,7 @@ function createIngestionClient({
       return transporter.request(request, requestOptions);
     },
     /**
-     * Deletes a task by its ID using the v1 endpoint, please use `deleteTask` instead.
+     * Deletes a task by its ID using the v1 endpoint. Use `deleteTask` instead.
      *
      * Required API Key ACLs:
      *  - addObject
@@ -6998,7 +6998,7 @@ function createIngestionClient({
       return transporter.request(request, requestOptions);
     },
     /**
-     * Disables a task using the v1 endpoint, please use `disableTask` instead.
+     * Disables a task using the v1 endpoint. Use `disableTask` instead.
      *
      * Required API Key ACLs:
      *  - addObject
@@ -7052,7 +7052,7 @@ function createIngestionClient({
       return transporter.request(request, requestOptions);
     },
     /**
-     * Enables a task using the v1 endpoint, please use `enableTask` instead.
+     * Enables a task using the v1 endpoint. Use `enableTask` instead.
      *
      * Required API Key ACLs:
      *  - addObject
@@ -7246,7 +7246,7 @@ function createIngestionClient({
       return transporter.request(request, requestOptions);
     },
     /**
-     * Retrieves a task by its ID using the v1 endpoint, please use `getTask` instead.
+     * Retrieves a task by its ID using the v1 endpoint. Use `getTask` instead.
      *
      * Required API Key ACLs:
      *  - addObject
@@ -7471,8 +7471,8 @@ function createIngestionClient({
      * @param listRuns.taskID - Task ID for filtering the list of task runs.
      * @param listRuns.sort - Property by which to sort the list of task runs.
      * @param listRuns.order - Sort order of the response, ascending or descending.
-     * @param listRuns.startDate - Date in RFC 3339 format for the earliest run to retrieve. By default, the current day minus seven days is used.
-     * @param listRuns.endDate - Date in RFC 3339 format for the latest run to retrieve. By default, the current day is used.
+     * @param listRuns.startDate - Date and time for the earliest run to retrieve, in RFC 3339 format. By default, the current day minus seven days is used.
+     * @param listRuns.endDate - Date and time for the latest run to retrieve, in RFC 3339 format. By default, the current day is used.
      * @param requestOptions - The requestOptions to send along with the query, they will be merged with the transporter requestOptions.
      */
     listRuns({ itemsPerPage, page, status, type, taskID, sort, order, startDate, endDate } = {}, requestOptions = void 0) {
@@ -7639,7 +7639,7 @@ function createIngestionClient({
       return transporter.request(request, requestOptions);
     },
     /**
-     * Retrieves a list of tasks using the v1 endpoint, please use `getTasks` instead.
+     * Retrieves a list of tasks using the v1 endpoint. Use `getTasks` instead.
      *
      * Required API Key ACLs:
      *  - addObject
@@ -7936,7 +7936,7 @@ function createIngestionClient({
       return transporter.request(request, requestOptions);
     },
     /**
-     * Runs a task using the v1 endpoint, please use `runTask` instead. You can check the status of task runs with the observability endpoints.
+     * Runs a task using the v1 endpoint. Use `runTask` instead. You can check the status of task runs with the observability endpoints.
      *
      * Required API Key ACLs:
      *  - addObject
@@ -8084,7 +8084,7 @@ function createIngestionClient({
       return transporter.request(request, requestOptions);
     },
     /**
-     * Searches for tasks using the v1 endpoint, please use `searchTasks` instead.
+     * Searches for tasks using the v1 endpoint. Use `searchTasks` instead.
      *
      * Required API Key ACLs:
      *  - addObject
@@ -8378,7 +8378,7 @@ function createIngestionClient({
       return transporter.request(request, requestOptions);
     },
     /**
-     * Updates a task by its ID using the v1 endpoint, please use `updateTask` instead.
+     * Updates a task by its ID using the v1 endpoint. Use `updateTask` instead.
      *
      * Required API Key ACLs:
      *  - addObject
@@ -8557,7 +8557,7 @@ function ingestionClient(appId, apiKey, region, options) {
 
 /***/ }),
 
-/***/ 412:
+/***/ 473:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -8586,12 +8586,12 @@ __export(node_exports, {
   monitoringClient: () => monitoringClient
 });
 module.exports = __toCommonJS(node_exports);
-var import_client_common2 = __nccwpck_require__(533);
-var import_requester_node_http = __nccwpck_require__(852);
+var import_client_common2 = __nccwpck_require__(776);
+var import_requester_node_http = __nccwpck_require__(193);
 
 // src/monitoringClient.ts
-var import_client_common = __nccwpck_require__(533);
-var apiClientVersion = "1.48.0";
+var import_client_common = __nccwpck_require__(776);
+var apiClientVersion = "1.48.1";
 function getDefaultHosts() {
   return [{ url: "status.algolia.com", accept: "readWrite", protocol: "https" }];
 }
@@ -8971,7 +8971,7 @@ function monitoringClient(appId, apiKey, options) {
 
 /***/ }),
 
-/***/ 834:
+/***/ 661:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -9000,12 +9000,12 @@ __export(node_exports, {
   recommendClient: () => recommendClient
 });
 module.exports = __toCommonJS(node_exports);
-var import_client_common2 = __nccwpck_require__(533);
-var import_requester_node_http = __nccwpck_require__(852);
+var import_client_common2 = __nccwpck_require__(776);
+var import_requester_node_http = __nccwpck_require__(193);
 
 // src/recommendClient.ts
-var import_client_common = __nccwpck_require__(533);
-var apiClientVersion = "5.48.0";
+var import_client_common = __nccwpck_require__(776);
+var apiClientVersion = "5.48.1";
 function getDefaultHosts(appId) {
   return [
     {
@@ -9429,7 +9429,7 @@ function recommendClient(appId, apiKey, options) {
 
 /***/ }),
 
-/***/ 852:
+/***/ 193:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -9552,7 +9552,7 @@ function createHttpRequester({
 
 /***/ }),
 
-/***/ 266:
+/***/ 417:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 
@@ -9582,33 +9582,33 @@ __export(node_exports, {
   apiClientVersion: () => import_client_search.apiClientVersion
 });
 module.exports = __toCommonJS(node_exports);
-var import_abtesting = __nccwpck_require__(949);
-var import_client_abtesting = __nccwpck_require__(860);
-var import_client_analytics = __nccwpck_require__(188);
-var import_client_insights = __nccwpck_require__(724);
-var import_client_personalization = __nccwpck_require__(68);
-var import_client_query_suggestions = __nccwpck_require__(292);
-var import_client_search2 = __nccwpck_require__(754);
-var import_ingestion = __nccwpck_require__(174);
-var import_monitoring = __nccwpck_require__(412);
-var import_recommend = __nccwpck_require__(834);
+var import_abtesting = __nccwpck_require__(378);
+var import_client_abtesting = __nccwpck_require__(533);
+var import_client_analytics = __nccwpck_require__(77);
+var import_client_insights = __nccwpck_require__(267);
+var import_client_personalization = __nccwpck_require__(141);
+var import_client_query_suggestions = __nccwpck_require__(725);
+var import_client_search2 = __nccwpck_require__(297);
+var import_ingestion = __nccwpck_require__(341);
+var import_monitoring = __nccwpck_require__(473);
+var import_recommend = __nccwpck_require__(661);
 
 // builds/models.ts
 var models_exports = {};
 __export(models_exports, {
   apiClientVersion: () => import_client_search.apiClientVersion
 });
-var import_client_search = __nccwpck_require__(754);
-__reExport(models_exports, __nccwpck_require__(949));
-__reExport(models_exports, __nccwpck_require__(860));
-__reExport(models_exports, __nccwpck_require__(188));
-__reExport(models_exports, __nccwpck_require__(724));
-__reExport(models_exports, __nccwpck_require__(68));
-__reExport(models_exports, __nccwpck_require__(292));
-__reExport(models_exports, __nccwpck_require__(754));
-__reExport(models_exports, __nccwpck_require__(174));
-__reExport(models_exports, __nccwpck_require__(412));
-__reExport(models_exports, __nccwpck_require__(834));
+var import_client_search = __nccwpck_require__(297);
+__reExport(models_exports, __nccwpck_require__(378));
+__reExport(models_exports, __nccwpck_require__(533));
+__reExport(models_exports, __nccwpck_require__(77));
+__reExport(models_exports, __nccwpck_require__(267));
+__reExport(models_exports, __nccwpck_require__(141));
+__reExport(models_exports, __nccwpck_require__(725));
+__reExport(models_exports, __nccwpck_require__(297));
+__reExport(models_exports, __nccwpck_require__(341));
+__reExport(models_exports, __nccwpck_require__(473));
+__reExport(models_exports, __nccwpck_require__(661));
 
 // builds/node.ts
 __reExport(node_exports, models_exports, module.exports);
@@ -9841,7 +9841,7 @@ function algoliasearch(appId, apiKey, options) {
 /************************************************************************/
 var __webpack_exports__ = {};
 
-const algoliasearch = __nccwpck_require__(266);
+const algoliasearch = __nccwpck_require__(417);
 const fs = __nccwpck_require__(896);
 const { exit } = __nccwpck_require__(932);
 const APPLICATION_ID = process.env.APPLICATION_ID;
