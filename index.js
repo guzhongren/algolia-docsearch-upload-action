@@ -1,7 +1,7 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 652:
+/***/ 937:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -70,16 +70,16 @@ exports.createNullCache = createNullCache;
 
 /***/ }),
 
-/***/ 601:
+/***/ 952:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 // eslint-disable-next-line functional/immutable-data, import/no-commonjs
-module.exports = __nccwpck_require__(652);
+module.exports = __nccwpck_require__(937);
 
 
 /***/ }),
 
-/***/ 956:
+/***/ 793:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -124,16 +124,16 @@ exports.createInMemoryCache = createInMemoryCache;
 
 /***/ }),
 
-/***/ 25:
+/***/ 362:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 // eslint-disable-next-line functional/immutable-data, import/no-commonjs
-module.exports = __nccwpck_require__(956);
+module.exports = __nccwpck_require__(793);
 
 
 /***/ }),
 
-/***/ 722:
+/***/ 527:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -141,9 +141,9 @@ module.exports = __nccwpck_require__(956);
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 
-var clientCommon = __nccwpck_require__(915);
-var transporter = __nccwpck_require__(265);
-var requesterCommon = __nccwpck_require__(457);
+var clientCommon = __nccwpck_require__(868);
+var transporter = __nccwpck_require__(658);
+var requesterCommon = __nccwpck_require__(0);
 
 const createAnalyticsClient = options => {
     const region = options.region || 'us';
@@ -221,16 +221,16 @@ exports.stopABTest = stopABTest;
 
 /***/ }),
 
-/***/ 465:
+/***/ 284:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 // eslint-disable-next-line functional/immutable-data, import/no-commonjs
-module.exports = __nccwpck_require__(722);
+module.exports = __nccwpck_require__(527);
 
 
 /***/ }),
 
-/***/ 959:
+/***/ 226:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -339,16 +339,16 @@ exports.version = version;
 
 /***/ }),
 
-/***/ 915:
+/***/ 868:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 // eslint-disable-next-line functional/immutable-data, import/no-commonjs
-module.exports = __nccwpck_require__(959);
+module.exports = __nccwpck_require__(226);
 
 
 /***/ }),
 
-/***/ 746:
+/***/ 943:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -356,9 +356,9 @@ module.exports = __nccwpck_require__(959);
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 
-var clientCommon = __nccwpck_require__(915);
-var transporter = __nccwpck_require__(265);
-var requesterCommon = __nccwpck_require__(457);
+var clientCommon = __nccwpck_require__(868);
+var transporter = __nccwpck_require__(658);
+var requesterCommon = __nccwpck_require__(0);
 
 const createPersonalizationClient = options => {
     const region = options.region || 'us';
@@ -405,16 +405,16 @@ exports.setPersonalizationStrategy = setPersonalizationStrategy;
 
 /***/ }),
 
-/***/ 41:
+/***/ 356:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 // eslint-disable-next-line functional/immutable-data, import/no-commonjs
-module.exports = __nccwpck_require__(746);
+module.exports = __nccwpck_require__(943);
 
 
 /***/ }),
 
-/***/ 128:
+/***/ 69:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -422,9 +422,9 @@ module.exports = __nccwpck_require__(746);
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 
-var clientCommon = __nccwpck_require__(915);
-var transporter = __nccwpck_require__(265);
-var requesterCommon = __nccwpck_require__(457);
+var clientCommon = __nccwpck_require__(868);
+var transporter = __nccwpck_require__(658);
+var requesterCommon = __nccwpck_require__(0);
 var crypto = __nccwpck_require__(982);
 
 function createBrowsablePromise(options) {
@@ -1817,16 +1817,16 @@ exports.waitTask = waitTask;
 
 /***/ }),
 
-/***/ 809:
+/***/ 922:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 // eslint-disable-next-line functional/immutable-data, import/no-commonjs
-module.exports = __nccwpck_require__(128);
+module.exports = __nccwpck_require__(69);
 
 
 /***/ }),
 
-/***/ 200:
+/***/ 865:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -1860,28 +1860,28 @@ exports.createNullLogger = createNullLogger;
 
 /***/ }),
 
-/***/ 145:
+/***/ 186:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 // eslint-disable-next-line functional/immutable-data, import/no-commonjs
-module.exports = __nccwpck_require__(200);
+module.exports = __nccwpck_require__(865);
 
 
 /***/ }),
 
-/***/ 900:
+/***/ 277:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var cacheCommon = __nccwpck_require__(601);
-var cacheInMemory = __nccwpck_require__(25);
-var clientCommon = __nccwpck_require__(915);
-var loggerCommon = __nccwpck_require__(145);
-var requesterNodeHttp = __nccwpck_require__(853);
-var transporter = __nccwpck_require__(265);
-var requesterCommon = __nccwpck_require__(457);
+var cacheCommon = __nccwpck_require__(952);
+var cacheInMemory = __nccwpck_require__(362);
+var clientCommon = __nccwpck_require__(868);
+var loggerCommon = __nccwpck_require__(186);
+var requesterNodeHttp = __nccwpck_require__(826);
+var transporter = __nccwpck_require__(658);
+var requesterCommon = __nccwpck_require__(0);
 
 const createRecommendClient = options => {
     const appId = options.appId;
@@ -2078,11 +2078,11 @@ module.exports = recommend;
 
 /***/ }),
 
-/***/ 889:
+/***/ 742:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 /* eslint-disable functional/immutable-data, import/no-commonjs */
-const recommend = __nccwpck_require__(900);
+const recommend = __nccwpck_require__(277);
 
 /**
  * The Common JS build is the default entry point for the Node environment. Keep in
@@ -2100,7 +2100,7 @@ module.exports["default"] = recommend;
 
 /***/ }),
 
-/***/ 120:
+/***/ 997:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -2120,16 +2120,16 @@ exports.MethodEnum = MethodEnum;
 
 /***/ }),
 
-/***/ 457:
+/***/ 0:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 // eslint-disable-next-line functional/immutable-data, import/no-commonjs
-module.exports = __nccwpck_require__(120);
+module.exports = __nccwpck_require__(997);
 
 
 /***/ }),
 
-/***/ 918:
+/***/ 819:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -2271,16 +2271,16 @@ exports.createNodeHttpRequester = createNodeHttpRequester;
 
 /***/ }),
 
-/***/ 853:
+/***/ 826:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 // eslint-disable-next-line functional/immutable-data, import/no-commonjs
-module.exports = __nccwpck_require__(918);
+module.exports = __nccwpck_require__(819);
 
 
 /***/ }),
 
-/***/ 916:
+/***/ 197:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -2288,7 +2288,7 @@ module.exports = __nccwpck_require__(918);
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 
-var requesterCommon = __nccwpck_require__(457);
+var requesterCommon = __nccwpck_require__(0);
 
 function createMappedRequestOptions(requestOptions, timeout) {
     const options = requestOptions || {};
@@ -2771,32 +2771,32 @@ exports.stackTraceWithoutCredentials = stackTraceWithoutCredentials;
 
 /***/ }),
 
-/***/ 265:
+/***/ 658:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 // eslint-disable-next-line functional/immutable-data, import/no-commonjs
-module.exports = __nccwpck_require__(916);
+module.exports = __nccwpck_require__(197);
 
 
 /***/ }),
 
-/***/ 233:
+/***/ 758:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-var cacheCommon = __nccwpck_require__(601);
-var cacheInMemory = __nccwpck_require__(25);
-var clientAnalytics = __nccwpck_require__(465);
-var clientCommon = __nccwpck_require__(915);
-var clientPersonalization = __nccwpck_require__(41);
-var clientSearch = __nccwpck_require__(809);
-var loggerCommon = __nccwpck_require__(145);
-var recommend = __nccwpck_require__(889);
-var requesterNodeHttp = __nccwpck_require__(853);
-var transporter = __nccwpck_require__(265);
-var requesterCommon = __nccwpck_require__(457);
+var cacheCommon = __nccwpck_require__(952);
+var cacheInMemory = __nccwpck_require__(362);
+var clientAnalytics = __nccwpck_require__(284);
+var clientCommon = __nccwpck_require__(868);
+var clientPersonalization = __nccwpck_require__(356);
+var clientSearch = __nccwpck_require__(922);
+var loggerCommon = __nccwpck_require__(186);
+var recommend = __nccwpck_require__(742);
+var requesterNodeHttp = __nccwpck_require__(826);
+var transporter = __nccwpck_require__(658);
+var requesterCommon = __nccwpck_require__(0);
 
 function createIngestionClient(options) {
     if (!options || !options.transformation || !options.transformation.region) {
@@ -3076,11 +3076,11 @@ module.exports = algoliasearch;
 
 /***/ }),
 
-/***/ 665:
+/***/ 188:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 /* eslint-disable functional/immutable-data, import/no-commonjs */
-const algoliasearch = __nccwpck_require__(233);
+const algoliasearch = __nccwpck_require__(758);
 
 /**
  * The Common JS build is the default entry point for the Node environment. Keep in
@@ -3197,7 +3197,7 @@ var __webpack_exports__ = {};
 (() => {
 "use strict";
 
-const algoliasearch = __nccwpck_require__(665);
+const algoliasearch = __nccwpck_require__(188);
 const fs = __nccwpck_require__(896);
 const { exit } = __nccwpck_require__(932);
 const APPLICATION_ID = process.env.APPLICATION_ID;
