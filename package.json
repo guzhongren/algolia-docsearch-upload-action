@@ -22,7 +22,7 @@
   "dependencies": {
     "@vercel/ncc": "^0.38.0",
     "algoliasearch": "^4.14.2",
-    "typescript": "^5.0.0"
+    "typescript": "^6.0.0"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
