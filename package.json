@@ -21,7 +21,7 @@
   "homepage": "https://github.com/guzhongren/algolia-docsearch-upload-action#readme",
   "dependencies": {
     "@vercel/ncc": "^0.38.0",
-    "algoliasearch": "^4.14.2",
+    "algoliasearch": "^5.0.0",
     "typescript": "^5.0.0"
   },
   "devDependencies": {
